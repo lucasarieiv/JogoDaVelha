@@ -1,0 +1,287 @@
+:root {
+    --primary-color: #55C0CF;
+    --primary-color-dark: #25C7BD;
+    --secondary-color: #FFDC5D;
+    --light: #fff;
+    --dark: #222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--primary-color);
+}
+
+button, input, textarea {
+    font-family: 'Nunito', sans-serif;
+}
+
+#app {
+    background: var(--primary-color);
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    max-width: 1080px;
+    max-height: 1920px;
+    padding: 60px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8rem;
+}
+
+header h1 {
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.player-1 h1 {
+    color: var(--light);
+}
+
+.player-2 h1 {
+    color: var(--secondary-color)
+}
+
+header .player-infor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1.75rem;
+    z-index: 10;
+}
+
+.player-1::after {
+    content: 'X';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 38rem;
+    line-height: 40rem;
+    color: var(--light);
+    opacity: .06;
+}
+
+.player-2::after {
+    content: 'O';
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 38rem;
+    line-height: 40rem;
+    color: var(--light);
+    opacity: .06;
+}
+
+.player-infor .img-container {
+    position: relative;
+    width: 123px;
+    height: 123px;
+    border-radius: 50%;
+    overflow: hidden;
+    border-width: 4px;
+    border-style: solid;
+}
+
+.player-1 .img-container {
+    border-color: var(--primary-color-dark);
+}
+.player-2 .img-container {
+    border-color: var(--secondary-color)
+}
+
+.img-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.8);
+}
+
+.personal {
+    margin-left: 1rem;
+}
+
+.personal .name,
+.personal .nickname {
+    font-size: 2.375rem;
+    font-weight: bold;
+    line-height: 2.4rem;
+}
+
+.personal .name {
+    color: var(--dark);
+}
+
+.personal .nickname {
+    color: var(--light);
+}
+
+#container {
+    width: 100%;
+}
+
+.game {
+    max-width: 776px;
+    margin: 0 auto;
+    margin-top: 14rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    background: var(--light);
+    gap: 30px;
+}
+
+.game div {
+    background: var(--primary-color);
+    position: relative;
+}
+
+.game button {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 258px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 9.2rem;
+    font-weight: 600;
+    border: none;
+    z-index: 5;
+
+}
+
+.game button::after {
+    position: absolute;
+    z-index: -5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .18;
+    color: var(--light);
+    font-weight: 600;
+    font-size: 12.5rem;
+    
+}
+
+.game button.top-left::after {
+    content: '1';
+
+}
+
+.game button.top-center::after {
+    content: '2';
+}
+
+.game button.top-right::after {
+    content: '3';
+}
+
+.game button.center-left::after {
+    content: '4';
+}
+
+.game button.center-center::after {
+    content: '5';
+}
+
+.game button.center-right::after {
+    content: '6';
+}
+
+.game button.bottom-left::after {
+    content: '7';
+}
+
+.game button.bottom-center::after {
+    content: '8';
+}
+
+.game button.bottom-right::after {
+    content: '9';
+}
+
+.game button.x {
+    color: var(--dark);
+}
+
+.game button.o {
+    color: var(--secondary-color);
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18rem;
+}
+
+.hashtag h2 {
+    font-weight: bold;
+    font-size: 3rem;
+    color: var(--light);
+}
+
+.next p {
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 4rem;
+    color: var(--secondary-color);
+}
+
+.next span {
+    display: inline-block;
+    font-size: 4rem;
+    line-height: 5rem;
+    margin-left: 1rem;
+}
+
+
+div.modalOverlay {
+    display: none;
+}
+
+div.modalOverlay.-active {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .8);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.modal h1 {
+    font-size: 5.62rem;
+    color:  var(--secondary-color);
+}
+
+.modal a {
+    display: block;
+    /* width: 260px; */
+    text-align: center;
+    font-size: 3.6rem;
+    border-radius: 60px;
+    line-height: 3.7rem;
+    padding: 1.6rem 0;
+    font-weight: 600;
+    margin-top: 2rem;
+    color: var(--light);
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
