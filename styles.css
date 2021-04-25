@@ -264,19 +264,21 @@ div.modalOverlay.-active {
 }
 
 .modal h1 {
-    font-size: 5.62rem;
+    font-size: 3rem;
     color:  var(--secondary-color);
 }
 
 .modal a {
     display: block;
+    width: 260px;
+    margin: 0 auto;
+    margin-top: 2rem;
     text-align: center;
-    font-size: 3.6rem;
+    font-size: 1.6rem;
     border-radius: 60px;
     line-height: 3.7rem;
-    padding: 1.6rem 0;
+    padding: .6rem 0;
     font-weight: 600;
-    margin-top: 2rem;
     color: var(--light);
     cursor: pointer;
     background-color: var(--primary-color);
