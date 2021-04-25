@@ -64,7 +64,7 @@ function gameOver() {
   }
 }
 
-function checkPlay() {
+function handleCheckPlay() {
 
   let countX = 0
   let countO = 0
@@ -118,7 +118,7 @@ gameButtons.forEach(button => {
       }
     }
 
-    checkPlay()
+    handleCheckPlay()
      
   }, false)
 });
