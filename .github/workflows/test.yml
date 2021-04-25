@@ -1,0 +1,21 @@
+name: Deploy the static file to GitHub Page
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v1
+
+    - name: deploy docs
+      uses: ./
+      with:
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        remote_url: https://github.com/lucasarieiv/lucasarieiv.github.io
