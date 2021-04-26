@@ -24,14 +24,34 @@ function messageGame(message, player) {
   modalSpan.textContent = message
 }
 
+function addPoint(playerNumber) {
+  let point = 0
+
+  const scorePlayer1 = document.querySelector('.score-player-1')
+  const scorePlayer2 = document.querySelector('.score-player-2')
+  
+  if (playerNumber == 1) {
+    point = Number(localStorage.player1) + 1
+    localStorage.player1 = point
+    scorePlayer1.textContent = point
+  } else {
+    point = Number(localStorage.player2) + 1
+    localStorage.player2 = point
+    scorePlayer2.textContent = point
+
+  }
+}
+
 function winGame(player) {
-  messageGame(`🎉 Jogador ${player} Venceu `, player)
+
+  messageGame(`🎉 Venceu `, player)
+  addPoint(player)
   endGame()
 }
 
 function endGame() {
   modalOverlay.classList.add('-active')
-  modalSpan.classList.remove('player-1', 'player-2')
+  modalSpan.classList.remove('player1', 'player2')
 }
 
 function restartGame() {
@@ -124,3 +144,10 @@ gameButtons.forEach(button => {
      
   }, false)
 });
+
+function gameScore() {
+  localStorage.setItem('player1', 0);
+  localStorage.setItem('player2', 0);
+}
+
+gameScore()
