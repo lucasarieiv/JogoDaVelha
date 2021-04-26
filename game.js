@@ -19,12 +19,13 @@ buttonRestart.addEventListener('click', ()=> {
   restartGame()
 })
 
-function messageGame(message) {
-  modalSpan.textContent = message 
+function messageGame(message, player) {
+  modalSpan.classList.add(`player-${player}`)
+  modalSpan.textContent = message
 }
 
-function winGame() {
-  messageGame("🎉 Ganhador")
+function winGame(player) {
+  messageGame(`🎉 Jogador ${player} Venceu `, player)
   endGame()
 }
 
@@ -46,6 +47,8 @@ function restartGame() {
   game = ["", "", "",
             "", "", "",
             "", "", ""]
+
+  modalSpan.className = ""
 }
 
 function gameOver() {
@@ -63,23 +66,24 @@ function gameOver() {
     endGame()
   }
 }
-
-function handleCheckPlay() {
-
+ 
+function checkPlay(player)  {
+  
   let countX = 0
   let countO = 0
-
+  
   for (const value of sequenceWin) {
-
+  
     for (const position of value) {
       if (game[position] == "X") {
-        countX++
+        ++countX
       } else if (game[position] == "O"){
-        countO++
+        ++countO
       }
-
+      
       if (countX == 3 || countO == 3) {
-        winGame()
+        winGame(player)
+        return true
       } else {
         gameOver()
       }
@@ -91,34 +95,33 @@ function handleCheckPlay() {
 
 }
 
-function playerChange() {
-  clickChange = !clickChange
-  
-  if(clickChange !== false) {
-    // console.log('Jogador 1')
-  } else {
-    // console.log('Jogador 2')
-  }
+function handlePlay(player) {
+  checkPlay(player)
 }
+
 
 gameButtons.forEach(button => {
   button.addEventListener('click', ()=> {
     const playPosition = button.classList[0]
+    clickChange = !clickChange
+
+    let playerToggle = ''
 
     if (!game[playPosition]) {
-      playerChange()
       if (clickChange !== false) {
+        playerToggle = '2'
         game[button.classList[0]] = "O"
         button.classList.add('o')
         button.insertAdjacentText('afterbegin', "O")
       } else {
+        playerToggle = '1'
         game[button.classList[0]] = "X"
         button.insertAdjacentText('afterbegin', "X")
         button.classList.add('x')
       }
     }
 
-    handleCheckPlay()
+    handlePlay(playerToggle)
      
   }, false)
 });

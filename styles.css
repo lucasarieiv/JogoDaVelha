@@ -300,6 +300,14 @@ div.modalOverlay.-active {
     background-color: var(--primary-color);
 }
 
+.modal span.player-1 {
+    color: var(--light)
+}
+
+.modal span.player-2 {
+    color: var(--secondary-color)
+}
+
 
 @media (max-width: 450px) {
     .game {
