@@ -20,7 +20,6 @@ buttonRestart.addEventListener('click', ()=> {
 })
 
 function messageGame(message, player) {
-  modalSpan.classList.add(`player-${player}`)
   modalSpan.textContent = message
 }
 
@@ -51,7 +50,6 @@ function winGame(player) {
 
 function endGame() {
   modalOverlay.classList.add('-active')
-  modalSpan.classList.remove('player1', 'player2')
 }
 
 function restartGame() {
