@@ -31,6 +31,7 @@ function winGame(player) {
 
 function endGame() {
   modalOverlay.classList.add('-active')
+  modalSpan.classList.remove('player-1', 'player-2')
 }
 
 function restartGame() {
@@ -47,8 +48,6 @@ function restartGame() {
   game = ["", "", "",
             "", "", "",
             "", "", ""]
-
-  modalSpan.className = ""
 }
 
 function gameOver() {
