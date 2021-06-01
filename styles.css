@@ -74,6 +74,7 @@ header .player-infor {
     z-index: 10;
 }
 
+
 .player-1::after {
     content: 'X';
     position: absolute;
@@ -108,6 +109,10 @@ header .player-infor {
     overflow: hidden;
     border-width: 2px;
     border-style: solid;
+}
+.img-container img{
+    width:70px;
+    height: 70px;
 }
 
 .player-1 .img-container {
